@@ -136,3 +136,5 @@ function loop() {
 
 }
 
+// calling loop in order to start the animation
+loop();
