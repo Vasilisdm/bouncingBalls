@@ -11,6 +11,6 @@ var height = canvas.height = window.innerHeight;
 
 // function to generate random number
 function random(min,max) {
-  var num = Math.floor(Math.random()*(max-min)) + min;
+  let num = Math.floor(Math.random()*(max-min)) + min;
   return num;
 }
