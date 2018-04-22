@@ -28,7 +28,7 @@ function Ball(x, y, velX, velY, color, size) {
     this.velY   = velY;
 
     this.color  = color;
-    this.size   = size
+    this.size   = size;
 }
 
 // I added the draw method on the Ball prototype because I don't want it created on each ball instance
@@ -78,6 +78,24 @@ Ball.prototype.update = function() {
     this.y += this.velY;
     
 } 
+
+// collisionDetect checks if two balls have colided and changes their color
+Ball.prototype.collisionDetect = function() {
+    for (let j = 0; j < balls.length; j++) {
+    
+        // check if the current ball being looped is the one currently checking
+        if (!(this === balls[j])) {
+            let dx = this.x - balls[j].x;
+            let dy = this.y - balls[j].y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            // collision detection
+            if (distance < this.size + balls[j].size) {
+                balls[j].color = this.color = `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`;
+            }
+        }
+    }
+}
 
 // empty array for storing all the balls
 let balls = [];
