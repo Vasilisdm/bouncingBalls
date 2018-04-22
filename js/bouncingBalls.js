@@ -31,7 +31,7 @@ function Ball(x, y, velX, velY, color, size) {
     this.size   = size
 }
 
-// I am added the draw method on th Ball prototype because I don't want it created on each ball instance
+// I added the draw method on the Ball prototype because I don't want it created on each ball instance
 Ball.prototype.draw = function() {
 
     // start drawing the shape on the drawing area
@@ -81,3 +81,39 @@ Ball.prototype.update = function() {
 
 // empty array for storing all the balls
 let balls = [];
+
+// Animation loop function which updates the information and 
+// renders the resulting view on each frame of the animation
+function loop() {
+
+    // set the canvas fill color to semi-transparent black
+    ctx.fillStyle = `rgba(0, 0, 0, 0.25)`;
+
+    // draw a rectangle of the color across the whole width and height of the canvas
+    ctx.fillRect(0, 0, width, height);
+
+    while(balls.length < 25) {
+
+        // creating new instance of the Ball "constructor" function
+        let ball = new Ball(
+            random(0, width), 
+            random(0, height), 
+            random(-7, -7), 
+            random(-7, 7), 
+            `rgb(${random(0,255)}, ${random(0,255)}, ${random(0,255)})`, 
+            random(10, 20));
+
+        // push the newly created ball into the balls array
+        balls.push(ball);
+    }
+
+    for (let i = 0; i  < balls.length; i++) {
+        balls[i].draw();
+        balls[i].update()        
+    }
+
+    // runs the loop function a set number of times per second to create a smooth animation
+    requestAnimationFrame(loop);
+
+}
+
