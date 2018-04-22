@@ -3,8 +3,8 @@ Some random generated balls, bouncing at the edges of the viewport,
 and changing color when they collide with each other. 
 
 ## Table of Contents
-* [Author](#Author)
-* [Built With]
+* Built With
+* Author
 
 
 ## Built With
