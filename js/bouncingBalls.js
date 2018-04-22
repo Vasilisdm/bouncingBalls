@@ -46,3 +46,35 @@ Ball.prototype.draw = function() {
     // and fill the area it takes up with the color specified in fillStyle
     ctx.fill();
 }
+
+// the ball's movement is given from the update function
+Ball.prototype.update = function() {
+
+    // Checking if the ball has reached the edge of the canvas
+    // If it has, I reverse the polarity of the relevant velocity
+    // to make the ball travel in the opposite direction.
+
+    // the ball is going off the right hand edge
+    if ((this.x + this.size) >= width) {
+        this.velX = -(this.velX);
+    }
+
+    // the ball is going off the left hand edge
+    if ((this.x - this.size) <= 0) {
+        this.velX = -(this.velX);
+    }
+    
+    // the ball is going off the bottom edge
+    if ((this.y + this.size) >= height) {
+        this.velY = -(this.velY);
+    }
+
+    // the ball is going off the top edge
+    if ((this.y - this.size) <= 0) {
+        this.velY = -(this.velY);
+    }
+
+    this.x += this.velX;
+    this.y += this.velY;
+    
+} 
