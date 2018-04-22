@@ -98,7 +98,7 @@ function loop() {
         let ball = new Ball(
             random(0, width), 
             random(0, height), 
-            random(-7, -7), 
+            random(-7, 7), 
             random(-7, 7), 
             `rgb(${random(0,255)}, ${random(0,255)}, ${random(0,255)})`, 
             random(10, 20));
