@@ -127,7 +127,8 @@ function loop() {
 
     for (let i = 0; i  < balls.length; i++) {
         balls[i].draw();
-        balls[i].update();        
+        balls[i].update();     
+        balls[i].collisionDetect();   
     }
 
     // runs the loop function a set number of times per second to create a smooth animation
