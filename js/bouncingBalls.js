@@ -78,3 +78,6 @@ Ball.prototype.update = function() {
     this.y += this.velY;
     
 } 
+
+// empty array for storing all the balls
+let balls = [];
