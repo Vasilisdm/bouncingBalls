@@ -30,3 +30,19 @@ function Ball(x, y, velX, velY, color, size) {
     this.color  = color;
     this.size   = size
 }
+
+// I am added the draw method on th Ball prototype because I don't want it created on each ball instance
+Ball.prototype.draw = function() {
+
+    // start drawing the shape on the drawing area
+    ctx.beginPath();
+
+    ctx.fillStyle = this.color;
+
+    // using arc to draw the ball on the drawing area.
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+
+    // finish drawing the path we started with beginPath
+    // and fill the area it takes up with the color specified in fillStyle
+    ctx.fill();
+}
